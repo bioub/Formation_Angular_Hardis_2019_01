@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <app-hello name="Jean"></app-hello>
     <br>
-    <app-btn-counter [value]="12"></app-btn-counter>
+    <app-btn-counter [value]="colors.length"></app-btn-counter>
     <br>
     <app-clock></app-clock>
     <br>
