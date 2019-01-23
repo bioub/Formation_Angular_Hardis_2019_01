@@ -1,0 +1,17 @@
+:host {
+  position: relative;
+}
+
+.selected, .items {
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.items {
+  position: relative;
+  top: -1px;
+}
+
+.items > div:hover {
+  background: lightblue;
+}

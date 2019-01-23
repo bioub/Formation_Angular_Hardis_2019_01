@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "todo-angular"
+		},
+		{
+			"path": "addressbook-angular"
+		},
+		{
+			"path": "hello-angular"
+		},
+		{
+			"path": "langage-js"
+		}
+	],
+	"settings": {}
+}

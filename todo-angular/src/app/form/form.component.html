@@ -1,4 +1,5 @@
 <form (submit)="handleSubmit($event)" >
-  <input [(ngModel)]="todo.text" name="text">
+  <!-- <input [(ngModel)]="todo.text" name="text"> -->
+  <input [ngModel]="todo.text" (ngModelChange)="todo.text = $event" name="text">
   <button>+</button>
 </form>

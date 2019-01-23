@@ -1,0 +1,6 @@
+<div class="selected">
+  {{selected}}
+</div>
+<div class="items">
+  <div *ngFor="let item of items" (click)="selectItem(item)">{{item}}</div>
+</div>
