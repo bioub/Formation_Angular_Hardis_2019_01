@@ -3,10 +3,14 @@ import { CommonModule } from '@angular/common';
 import { TopbarComponent } from './topbar/topbar.component';
 import { SharedModule } from '../shared/shared.module';
 import { throwIfAlreadyLoaded } from './module-import-guard';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
-    TopbarComponent
+    TopbarComponent,
+    PageNotFoundComponent,
+    HomeComponent
   ],
   imports: [
     SharedModule,

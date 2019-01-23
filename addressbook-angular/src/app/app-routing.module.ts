@@ -1,19 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ContactComponent } from './contacts/contact/contact.component';
-import { ContactAddComponent } from './contacts/contact-add/contact-add.component';
-import { ContactShowComponent } from './contacts/contact-show/contact-show.component';
+import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
+import { HomeComponent } from './core/home/home.component';
 
 const routes: Routes = [{
+  path: '',
+  component: HomeComponent,
+}, {
   path: 'contacts',
-  component: ContactComponent,
-  children: [{
-    path: 'add',
-    component: ContactAddComponent,
-  }, {
-    path: ':id',
-    component: ContactShowComponent,
-  }]
+  loadChildren: './contacts/contacts.module#ContactsModule'
+}, {
+  path: '**',
+  component: PageNotFoundComponent,
 }];
 
 @NgModule({
