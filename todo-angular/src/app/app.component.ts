@@ -9,7 +9,7 @@ import { Todo } from './todo';
 export class AppComponent {
   todos: Todo[] = [{id: 12, text: 'Pain'}, {id: 13, text: 'Lait'}, {id: 2, text: 'Beurre'}];
 
-  handleTodoAdd(todo) {
+  handleTodoAdd(todo: Todo) {
     // ajout dans un tableau muable
     // this.todos.push(todo);
 

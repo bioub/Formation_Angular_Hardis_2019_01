@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FakeContactService } from '../fake-contact.service';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Contact } from '../contact';
+import { Observable } from 'rxjs';
+import { ContactServiceInterface, ContactService } from '../contact-service.interface';
 
 @Component({
   selector: 'ab-contact',
@@ -9,9 +10,12 @@ import { Contact } from '../contact';
 })
 export class ContactComponent implements OnInit {
 
-  contacts: Contact[] = [];
+  // contacts: Contact[] = [];
+  contacts$: Observable<Contact[]>;
 
-  constructor(private contactService: FakeContactService) { }
+  constructor(
+    @Inject(ContactService) private contactService: ContactServiceInterface,
+  ) { }
 
   // équivalent à :
   // private contactService: FakeContactService;
@@ -20,9 +24,11 @@ export class ContactComponent implements OnInit {
   // }
 
   ngOnInit() {
-    this.contactService.getAll().subscribe((contacts) => {
-      this.contacts = contacts;
-    });
+    // idéalement il faudrait unsubscribe dans ngOnDestroy
+    // this.contactService.getAll().subscribe((contacts) => {
+    //   this.contacts = contacts;
+    // });
+    this.contacts$ = this.contactService.getAll();
   }
 
 }

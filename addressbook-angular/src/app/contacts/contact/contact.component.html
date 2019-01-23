@@ -1,9 +1,11 @@
 <div class="row">
   <div class="col-sm-4">
-    <div>
-      <div *ngFor="let contact of contacts">
+    <div class="list-group">
+      <a class="list-group-item list-group-item-action"
+         *ngFor="let contact of contacts$ | async"
+         [routerLink]="[contact.id]" routerLinkActive="active">
         {{contact.name}}
-      </div>
+      </a>
     </div>
   </div>
   <div class="col-sm">
