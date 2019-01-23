@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { Contact } from '../contact';
+import { ContactServiceInterface, ContactService } from '../contact-service.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ab-contact-add',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactAddComponent implements OnInit {
 
-  constructor() { }
+  contact = new Contact();
+
+  constructor(
+    @Inject(ContactService) private contactService: ContactServiceInterface,
+    private router: Router,
+  ) { }
 
   ngOnInit() {
+  }
+
+  createContact() {
+    this.contactService.create(this.contact).subscribe(() => {
+      this.router.navigate(['contacts']);
+      this.contactService.events.emit('refresh-list');
+    });
   }
 
 }

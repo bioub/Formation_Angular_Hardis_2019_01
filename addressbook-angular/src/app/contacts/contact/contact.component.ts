@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { Contact } from '../contact';
 import { Observable } from 'rxjs';
 import { ContactServiceInterface, ContactService } from '../contact-service.interface';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'ab-contact',
@@ -28,6 +29,16 @@ export class ContactComponent implements OnInit {
     // this.contactService.getAll().subscribe((contacts) => {
     //   this.contacts = contacts;
     // });
+    this.loadContacts();
+
+    this.contactService.events.pipe(
+      filter((event) => event === 'refresh-list'),
+    ).subscribe(() => {
+      this.loadContacts();
+    });
+  }
+
+  loadContacts() {
     this.contacts$ = this.contactService.getAll();
   }
 

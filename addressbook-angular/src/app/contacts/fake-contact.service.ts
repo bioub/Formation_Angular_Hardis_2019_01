@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Contact } from './contact';
 import { of, Observable } from 'rxjs';
 import { delay } from 'rxjs/operators';
@@ -8,6 +8,8 @@ import { ContactServiceInterface } from './contact-service.interface';
   providedIn: 'root',
 }*/)
 export class FakeContactService implements ContactServiceInterface {
+
+  events = new EventEmitter<string>();
 
   protected contacts: Contact[] = [
     {
