@@ -1,8 +1,23 @@
-<ul>
-  <li>
-    <a routerLink="/contacts">Liste des contacts</a>
-  </li>
-  <li>
-    <a routerLink="/contacts-add">Ajouter un contact</a>
-  </li>
-</ul>
+<nav class="navbar navbar-expand navbar-light bg-light mb-3">
+  <a class="navbar-brand" routerLink="/">AddressBook</a>
+  <ul class="navbar-nav">
+    <!-- <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li> -->
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/contacts">Liste des contacts</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['contacts', 'add' ]">Ajouter un contact</a>
+    </li>
+  </ul>
+</nav>
