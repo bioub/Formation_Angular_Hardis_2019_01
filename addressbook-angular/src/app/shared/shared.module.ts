@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
     DropdownComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
   ],
   exports: [
     DropdownComponent,
