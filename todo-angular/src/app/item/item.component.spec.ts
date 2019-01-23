@@ -22,4 +22,12 @@ describe('ItemComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should show Rentrer à la maison, if todo.text contains it', () => {
+    component.todo = {
+      text: 'Rentrer à la maison',
+    };
+    fixture.detectChanges();
+    expect(fixture.debugElement.nativeElement.querySelector('p').innerText).toBe('Rentrer à la maison');
+  });
 });
